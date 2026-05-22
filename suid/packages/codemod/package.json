@@ -1,0 +1,40 @@
+{
+  "name": "@suid/codemod",
+  "version": "0.12.1",
+  "description": "Tool for migrating MUI React code to SUID SolidJS.",
+  "keywords": [
+    "solid",
+    "solidjs",
+    "react",
+    "components",
+    "mui",
+    "material-ui",
+    "material design",
+    "codemod"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "tsc --build --clean tsconfig.build.json",
+    "watch": "tsc --build -w tsconfig.build.json"
+  },
+  "dependencies": {
+    "@types/micromatch": "^4.0.9",
+    "commander": "^14.0.0",
+    "fast-glob": "^3.3.3",
+    "micromatch": "^4.0.8",
+    "prettier": "^3.5.3",
+    "ts-morph": "^26.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "publishConfig": {
+    "directory": "lib"
+  },
+  "x-wspa": {
+    "pkgManifest": {
+      "bin": "bin.js"
+    }
+  }
+}

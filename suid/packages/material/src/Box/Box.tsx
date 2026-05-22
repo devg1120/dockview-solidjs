@@ -1,0 +1,27 @@
+import { useTheme } from "../styles";
+import { BoxTypeMap } from "./BoxProps";
+import createComponentFactory from "@suid/base/createComponentFactory";
+import SystemBox from "@suid/system/Box";
+import clsx from "clsx";
+
+const $ = createComponentFactory<BoxTypeMap>()({
+  name: "MuiBox",
+  selfPropNames: [],
+  utilityClass: (slot) => `MuiBox-${slot}`,
+  slotClasses: () => ({
+    root: ["root"],
+  }),
+});
+
+export const Box = $.component(function Box({ otherProps, classes }) {
+  const theme = useTheme();
+  return (
+    <SystemBox
+      theme={theme}
+      {...otherProps}
+      class={clsx(classes.root, otherProps.class)}
+    />
+  );
+});
+
+export default Box;

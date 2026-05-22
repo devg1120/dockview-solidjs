@@ -1,0 +1,23 @@
+{
+  "name": "@suid/types",
+  "version": "0.8.0",
+  "description": "Types used by suid packages.",
+  "keywords": [
+    "solid",
+    "solidjs",
+    "components",
+    "mui",
+    "types"
+  ],
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "tsc --build --clean tsconfig.build.json",
+    "watch": "tsc --build -w tsconfig.build.json"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.9.7"
+  },
+  "publishConfig": {
+    "directory": "lib"
+  }
+}

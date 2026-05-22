@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@suid/css": ["./../css/src"],
+      "@suid/css/*": ["./../css/src/*"],
+      "@suid/utils": ["./../utils/src"],
+      "@suid/utils/*": ["./../utils/src/*"]
+    }
+  },
+  "extends": "./../../tsconfig.json",
+  "include": ["src", "test"],
+  "references": [
+    { "path": "./../css/tsconfig.build.json" },
+    { "path": "./../utils/tsconfig.build.json" }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@suid/css": ["./../css/src"],
+      "@suid/css/*": ["./../css/src/*"],
+      "@suid/system": ["./../system/src"],
+      "@suid/system/*": ["./../system/src/*"],
+      "@suid/types": ["./../types/src"],
+      "@suid/types/*": ["./../types/src/*"],
+      "@suid/utils": ["./../utils/src"],
+      "@suid/utils/*": ["./../utils/src/*"]
+    }
+  },
+  "extends": "./../../tsconfig.json",
+  "include": ["src", "test"],
+  "references": [
+    { "path": "./../css/tsconfig.build.json" },
+    { "path": "./../system/tsconfig.build.json" },
+    { "path": "./../types/tsconfig.build.json" },
+    { "path": "./../utils/tsconfig.build.json" }
+  ]
+}

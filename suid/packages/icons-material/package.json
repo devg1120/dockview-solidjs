@@ -1,0 +1,34 @@
+{
+  "name": "@suid/icons-material",
+  "version": "0.9.0",
+  "description": "Material Design icons as SVG SolidJS components.",
+  "keywords": [
+    "solid",
+    "solidjs",
+    "components",
+    "mui",
+    "material-ui",
+    "material design",
+    "icons"
+  ],
+  "main": "index.jsx",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "watch": "tsc --build -w"
+  },
+  "dependencies": {
+    "@suid/material": "workspace:*"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.9.7"
+  },
+  "publishConfig": {
+    "directory": "lib"
+  },
+  "x-wspa": {
+    "outFiles": [
+      "lib/*.d.ts"
+    ]
+  }
+}

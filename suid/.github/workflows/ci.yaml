@@ -1,0 +1,59 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+      - develop
+env:
+  NODE_VERSION: 22
+  PNPM_VERSION: 10
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm test
+      - run: pnpm build
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+      - name: Create release pull request or publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          commit: "chore: update versions"
+          title: Update versions
+          publish: pnpm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Build metadata
+        id: metadata
+        uses: actions/github-script@v7
+        env:
+          PUBLISHED_PACKAGES: ${{ steps.changesets.outputs.publishedPackages }}
+        with:
+          script: |
+            const metadata = require('./.github/workflows/metadata.js')
+            await metadata({ github, context, core })
+      - name: Prepare deploy
+        run: |-
+          rm packages/site/dist/node_modules
+      - name: Deploy suid.dev site
+        if: steps.metadata.outputs['@suid/site:published'] == 'true'
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          branch: gh-pages
+          folder: packages/site/dist
+      - name: Deploy next.suid.dev site
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          branch: gh-pages-next
+          folder: packages/site/dist

@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@suid/types": ["./../types/src"],
+      "@suid/types/*": ["./../types/src/*"]
+    }
+  },
+  "extends": "./../../tsconfig.json",
+  "include": ["src", "test"],
+  "references": [{ "path": "./../types/tsconfig.build.json" }]
+}

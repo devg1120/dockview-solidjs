@@ -1,0 +1,131 @@
+{
+  "name": "suid",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A port of Materia-UI (MUI) built with SolidJS.",
+  "keywords": [
+    "best_ecosystem",
+    "components",
+    "material",
+    "material-design",
+    "material-ui",
+    "mui",
+    "solid",
+    "solid-js",
+    "solid.js",
+    "solidhack",
+    "solidjs",
+    "styled-component",
+    "ui",
+    "ux"
+  ],
+  "homepage": "https://suid.dev",
+  "bugs": {
+    "url": "https://github.com/swordev/suid.git/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swordev/suid.git"
+  },
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Juanra GM",
+      "email": "juanrgm724@gmail.com",
+      "url": "https://github.com/juanrgm"
+    }
+  ],
+  "workspaces": [
+    "scripts",
+    "packages/*"
+  ],
+  "scripts": {
+    "bench": "vitest bench --run",
+    "build": "pnpm scripts prebuild && pnpm build:ts && pnpm build:vite-plugin && pnpm build:site",
+    "build:site": "pnpm --filter @suid/site build && wspa compose -p @suid/site",
+    "build:ts": "tsc --build tsconfig.build.json --verbose",
+    "build:vite-plugin": "pnpm --filter @suid/vite-plugin build && wspa compose -p @suid/vite-plugin",
+    "changeset": "changeset",
+    "check": "pnpm check:format && pnpm check:lint",
+    "check:format": "prettier --cache -c .",
+    "check:lint": "eslint --cache .",
+    "clean": "wspa clean",
+    "codemod": "tsx packages/codemod/src/bin.ts",
+    "compose": "wspa compose",
+    "dev": "pnpm --filter @suid/site dev",
+    "format": "prettier --cache -w .",
+    "postinstall": "wspa compose && pnpm scripts prebuild",
+    "prepare": "husky",
+    "release": "changeset publish",
+    "scripts": "tsx scripts/index.ts",
+    "start": "pnpm --filter @suid/site start",
+    "test": "vitest run",
+    "test:types": "vitest typecheck --run",
+    "update:deps": "ncu",
+    "update:prettier-deps": "ncu prettier,@types/prettier,@trivago/prettier-plugin-sort-imports,prettier-plugin-packagejson,prettier-plugin-sort-json",
+    "update:solid-core-deps": "ncu babel-preset-solid,solid-js,solid-testing-library",
+    "update:solid-misc-deps": "ncu @solidjs/meta,@solidjs/router",
+    "update:vite-deps": "ncu vite,vitest",
+    "watch": "tsc --build tsconfig.build.json -w"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "@changesets/changelog-github": "^0.5.1",
+    "@changesets/cli": "^2.29.4",
+    "@eslint/compat": "^1.3.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@types/node": "^24.0.1",
+    "@wspa/cli": "^0.6.0",
+    "@wspa/config": "^0.3.1",
+    "@yarnpkg/core": "4.4.2",
+    "babel-preset-solid": "^1.9.6",
+    "eslint": "^9.29.0",
+    "eslint-plugin-n": "^17.20.0",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-solid": "^0.14.5",
+    "globals": "16.2.0",
+    "husky": "^9.1.7",
+    "jsdom": "^22.0.0",
+    "npm-check-updates": "^18.0.1",
+    "prettier": "^3.5.3",
+    "prettier-plugin-packagejson": "^2.5.15",
+    "prettier-plugin-sort-json": "^4.1.1",
+    "solid-js": "^1.9.7",
+    "solid-testing-library": "^0.5.1",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.34.0",
+    "vite": "^6.3.5",
+    "vite-plugin-solid": "^2.11.6",
+    "vitest": "^3.2.3"
+  },
+  "info": "SUID is all a set of utils and components ported from MUI Core and much more.",
+  "x-wspa": {
+    "extends": "@wspa/config/auto",
+    "pkgManifest": {
+      "bugs": {
+        "url": "https://github.com/swordev/suid/issues"
+      },
+      "contributors": [
+        {
+          "name": "Juanra GM",
+          "email": "juanrgm724@gmail.com",
+          "url": "https://github.com/juanrgm"
+        }
+      ],
+      "files": [
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.d.ts"
+      ],
+      "homepage": "https://suid.dev",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/swordev/suid",
+        "directory": "<directory>"
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "create-suid",
+  "version": "0.3.0",
+  "description": "CLI tool for creating a SUID project easily.",
+  "keywords": [
+    "cli",
+    "suid",
+    "solidjs"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "tsc --build --clean tsconfig.build.json",
+    "watch": "tsc --build -w tsconfig.build.json"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "inquirer": "^12.6.3"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.8"
+  },
+  "publishConfig": {
+    "directory": "lib"
+  },
+  "x-wspa": {
+    "pkgManifest": {
+      "bin": "bin.js"
+    }
+  }
+}

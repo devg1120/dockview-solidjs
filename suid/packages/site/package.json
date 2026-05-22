@@ -1,0 +1,54 @@
+{
+  "name": "@suid/site",
+  "version": "0.21.2",
+  "description": "SUID website.",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "build:ts": "tsc --build tsconfig.build.json --verbose",
+    "clean": "node ./vite/clean.js",
+    "dev": "vite dev --host --port 3000",
+    "start": "vite preview"
+  },
+  "dependencies": {
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.15.3",
+    "@stackblitz/sdk": "^1.11.0",
+    "@suid/base": "workspace:*",
+    "@suid/codemod": "workspace:*",
+    "@suid/icons-material": "workspace:*",
+    "@suid/material": "workspace:*",
+    "@suid/system": "workspace:*",
+    "@suid/types": "workspace:*",
+    "@suid/utils": "workspace:*",
+    "monaco-editor": "^0.52.2",
+    "prism-themes": "^1.9.0",
+    "prismjs": "^1.30.0",
+    "semver": "^7.7.2",
+    "solid-js": "^1.9.7"
+  },
+  "devDependencies": {
+    "@suid/vite-plugin": "workspace:*",
+    "@types/prismjs": "^1.26.5",
+    "@types/semver": "^7.7.0",
+    "fast-glob": "^3.3.3",
+    "sass": "^1.89.2",
+    "vite": "^6.3.5",
+    "vite-plugin-solid": "^2.11.6"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  },
+  "x-wspa": {
+    "devPkgManifestFields": true,
+    "pkgManifest": {
+      "scripts": null,
+      "dependencies": null,
+      "devDependencies": null,
+      "files": [
+        "assets/**/*",
+        "index.html"
+      ]
+    }
+  }
+}
