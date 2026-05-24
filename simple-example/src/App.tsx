@@ -10,13 +10,26 @@ import {
   IWatermarkPanelProps,
   DockviewReadyEvent,
   IDockviewPanel,
-  themeReplit,
+  //themeReplit,
   SplitviewSolid, // <-- use the Solid Splitview
 } from "@arminmajerie/dockview-solid";
 import { Orientation } from '@arminmajerie/dockview-solid';
 
 import CloseIcon from "@suid/icons-material/Close";
 import DockviewDndHarness from "./DndHarness";
+
+/*
+ *
+dockview-solid-port
+$ vi ./packages/dockview-core/src/dockview/theme.ts
+
+*/
+
+const themeReplit: DockviewTheme = {
+    name: 'replit',
+    className: 'dockview-theme-replit',
+    gap: 10,
+};
 
 let resizeObserver: ResizeObserver | undefined;
 

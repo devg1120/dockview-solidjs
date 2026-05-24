@@ -181,7 +181,7 @@ html, body {
 
 .topHeaderCollapsedTray::-webkit-scrollbar-thumb {
   background: rgba(122, 127, 150, 0.45);
-  border-radius: 999px;
+  border-radius: 999px; 
 }
 
 @media (max-width: 720px) {
@@ -233,3 +233,19 @@ html, body {
   white-space: pre;
   justify-content: flex-start;
 }
+
+/*********************  GUSA  GS *************************/
+/*
+.dv-content-container {
+  border-radius: 0px;
+}
+*/
+
+.dv-groupview {    
+        border-radius: 0px !important;
+}
+
+.dv-tab {    
+        border-radius: 0px !important;
+}
+

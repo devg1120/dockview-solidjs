@@ -27,7 +27,7 @@ import {
 import { BasicCodeMirrorEditor } from "../codemirror/BasicCodeMirrorEditor";
 import { ExcelTableRenderer } from "../excel/ExcelTableRenderer";
 import { fileToBase64, parseExcelViaWasm } from "../excel/excelUtils";
-import { PdfViewer } from "./PdfViewer";
+//import { PdfViewer } from "./PdfViewer";
 import { isReservedInputId, type InputFormat, type PipelineInputItem } from "./inputModel";
 
 export interface InputExplorerProps {
@@ -83,8 +83,8 @@ export function InputExplorer(props: InputExplorerProps): JSX.Element {
   };
 
   const isExcelFormat = (fmt: InputFormat): boolean => fmt === "XLSX" || fmt === "XLS";
-  const isPdfFormat = (fmt: InputFormat): boolean => fmt === "PDF";
-  const isBinaryFormat = (fmt: InputFormat): boolean => isExcelFormat(fmt) || isPdfFormat(fmt);
+//  const isPdfFormat = (fmt: InputFormat): boolean => fmt === "PDF";
+//  const isBinaryFormat = (fmt: InputFormat): boolean => isExcelFormat(fmt) || isPdfFormat(fmt);
 
   // Excel preview data for the table renderer
   const [excelPreviewData, setExcelPreviewData] = createSignal<Record<string, unknown>[] | null>(null);
@@ -125,7 +125,7 @@ export function InputExplorer(props: InputExplorerProps): JSX.Element {
       ),
     );
   };
-
+/*
   const handlePdfFile = async (file: File, editingId: string) => {
     const base64 = await fileToBase64(file);
     props.setInputs((prev) =>
@@ -136,11 +136,11 @@ export function InputExplorer(props: InputExplorerProps): JSX.Element {
       ),
     );
   };
-
+*/
   const handleBinaryFile = async (file: File, editingId: string) => {
     const ext = file.name.split(".").pop()?.toLowerCase();
     if (ext === "pdf") {
-      await handlePdfFile(file, editingId);
+      //await handlePdfFile(file, editingId);
     } else {
       await handleExcelFile(file, editingId);
     }
@@ -574,7 +574,8 @@ export function InputExplorer(props: InputExplorerProps): JSX.Element {
                         cursor: "pointer",
                         background: "transparent",
                         border: "1px solid #3a3d54",
-                        "border-radius": "4px",
+                        //"border-radius": "4px",
+                        "border-radius": "0px",
                         color: "#89b4fa",
                         "font-size": "11px",
                         "font-weight": "600",
@@ -591,6 +592,7 @@ export function InputExplorer(props: InputExplorerProps): JSX.Element {
                       Select File
                     </button>
                   </Show>
+		  {/*
                   <Show when={isPdfFormat(item()!.format)}>
                     <button
                       title="Select PDF file"
@@ -599,7 +601,8 @@ export function InputExplorer(props: InputExplorerProps): JSX.Element {
                         cursor: "pointer",
                         background: "transparent",
                         border: "1px solid #3a3d54",
-                        "border-radius": "4px",
+                        //"border-radius": "4px",
+                        "border-radius": "0px",
                         color: "#89b4fa",
                         "font-size": "11px",
                         "font-weight": "600",
@@ -616,6 +619,7 @@ export function InputExplorer(props: InputExplorerProps): JSX.Element {
                       Select File
                     </button>
                   </Show>
+		  */}
                   <Show when={!isExcelFormat(item()!.format) && (item()!.format === "JSON" || item()!.format === "XML")}>
                     <button
                       title={inputFoldEnabled() ? "Disable collapsing" : "Enable collapsing"}
@@ -627,7 +631,8 @@ export function InputExplorer(props: InputExplorerProps): JSX.Element {
                         background: inputFoldEnabled() ? "rgba(99,179,237,0.18)" : "transparent",
                         border: "1px solid",
                         "border-color": inputFoldEnabled() ? "rgba(99,179,237,0.55)" : "#3a3d54",
-                        "border-radius": "4px",
+                        //"border-radius": "4px",
+                        "border-radius": "0px",
                         color: inputFoldEnabled() ? "#63b3ed" : "#e0e3ef",
                         "font-size": "11px",
                         padding: "1px 5px",

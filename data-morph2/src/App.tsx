@@ -11,7 +11,7 @@ import {
   type IDockviewPanelHeaderProps,
   type IDockviewHeaderActionsProps,
   type DockviewApi,
-  themeReplit,
+  //themeReplit,
 } from "@arminmajerie/dockview-solid";
 import { KeyboardManager } from "@arminmajerie/keyboard-manager";
 import { logService, LogViewerPanel } from "./logViewer";
@@ -31,6 +31,19 @@ import { TopHeader } from "./topHeader/TopHeader";
 import { OutputPane, type OutputFormatId } from "./output/OutputPane";
 import { ScriptPane } from "./scriptPane/ScriptPane";
 import { downloadBase64AsFile, isExcelBase64 } from "./excel/excelUtils";
+
+/*
+ * 
+dockview-solid-port   
+$ vi ./packages/dockview-core/src/dockview/theme.ts
+
+*/
+
+const themeReplit: DockviewTheme = {       
+    name: 'replit',
+    className: 'dockview-theme-replit',
+    gap: 3,
+};
 
 
 function safeJsonParse(text: string): unknown {
@@ -767,8 +780,8 @@ export default function App(): JSX.Element {
                         cursor: "pointer",
                         background: "transparent",
                         border: "1px solid #3a3d54",
-                        //"border-radius": "4px",
-                        "border-radius": "0px",
+                        "border-radius": "4px",
+                        //"border-radius": "0px",
                         color: "#a6e3a1",
                         "font-size": "11px",
                         "font-weight": "600",
@@ -801,8 +814,8 @@ export default function App(): JSX.Element {
                         background: isPretty() ? "rgba(99,179,237,0.18)" : "transparent",
                         border: "1px solid",
                         "border-color": isPretty() ? "rgba(99,179,237,0.55)" : "#3a3d54",
-                        //"border-radius": "4px",
-                        "border-radius": "0px",
+                        "border-radius": "4px",
+                        //"border-radius": "0px",
                         color: isPretty() ? "#63b3ed" : "#e0e3ef",
                         "font-size": "11px",
                         "font-family": "monospace",
@@ -827,8 +840,8 @@ export default function App(): JSX.Element {
                         background: outputFoldEnabled() ? "rgba(99,179,237,0.18)" : "transparent",
                         border: "1px solid",
                         "border-color": outputFoldEnabled() ? "rgba(99,179,237,0.55)" : "#3a3d54",
-                        //"border-radius": "4px",
-                        "border-radius": "0px",
+                        "border-radius": "4px",
+                        //"border-radius": "0px",
                         color: outputFoldEnabled() ? "#63b3ed" : "#e0e3ef",
                         "font-size": "11px",
                         padding: "1px 5px",
@@ -860,8 +873,8 @@ export default function App(): JSX.Element {
                       color: "#e0e3ef",
                       background: "#1e2035",
                       border: "1px solid #3a3d54",
-                      //"border-radius": "4px",
-                      "border-radius": "0px",
+                      "border-radius": "4px",
+                      //"border-radius": "0px",
                       padding: "2px 8px",
                       height: "22px",
                       cursor: "pointer",
@@ -893,12 +906,13 @@ export default function App(): JSX.Element {
             setCollapsedPanels([]);
 
             // 1. Input explorer (leftmost) — first panel, no initialWidth needed
+	    
             api.addPanel({
               id: "inputPanel",
               component: "topPanel",
               title: "Input",
               tabComponent: "playgroundTab",
-              params: { title: "Input" },
+              params: { title: "InputGS" },
             });
 
             // 2. Script editor (center, right of input)
@@ -919,7 +933,7 @@ export default function App(): JSX.Element {
               component: "topPanel",
               title: "Output",
               tabComponent: "playgroundTab",
-              params: { title: "Output" },
+              params: { title: "OutputGS" },
               position: { referencePanel: "scriptEditorPanel", direction: "right" },
             });
 
