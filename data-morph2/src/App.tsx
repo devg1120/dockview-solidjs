@@ -35,13 +35,24 @@ import { downloadBase64AsFile, isExcelBase64 } from "./excel/excelUtils";
 /*
  * 
 dockview-solid-port   
-$ vi ./packages/dockview-core/src/dockview/theme.ts
+$ vi ../../dockview-solid-port/packages/dockview-core/src/dockview/theme.ts
 
 */
 
 const themeReplit: DockviewTheme = {       
     name: 'replit',
     className: 'dockview-theme-replit',
+    gap: 3,
+};
+const themeGusa: DockviewTheme = {       
+    //name: 'replit',
+    name: 'gusa',
+    className: 'dockview-theme-replit',
+    //className: 'dockview-theme-vs',
+    //className: 'dockview-theme-abyss',
+    //className: 'dockview-theme-dracula',
+    //className: 'dockview-theme-dark',
+    //className: 'dockview-theme-light',
     gap: 3,
 };
 
@@ -587,6 +598,7 @@ export default function App(): JSX.Element {
   // This lets the user manually override the format; it only resets
   // when the script's output directive actually changes.
   let _lastDetectedFormat: OutputFormatId | null = null;
+  
   createEffect(on(script, (currentScript) => {
     const detectedFormat = extractOutputFormatFromScript(currentScript);
     if (detectedFormat && detectedFormat !== _lastDetectedFormat) {
@@ -599,6 +611,7 @@ export default function App(): JSX.Element {
   // Reactively update script editor tab title when selected script changes.
   // Uses on(selectedScriptId) so it ONLY re-runs when the selected script ID changes
   // — NOT on every content keystroke (which would trigger SolidPart.update → re-render → focus loss).
+  
   createEffect(on(selectedScriptId, (id) => {
     const selected = scripts().find((s) => s.id === id);
     const name = selected?.name ?? "main.dm";
@@ -612,6 +625,7 @@ export default function App(): JSX.Element {
       syncCollapsedPanels(topDockviewApi);
     }
   }));
+
 
   createEffect(() => {
     const currentScript = script();
@@ -677,6 +691,7 @@ export default function App(): JSX.Element {
       clearTimeout(handle);
     });
   });
+
 
   // ──────────────────────────────────────────────
   // DockviewSolid panel content component (top)
@@ -750,7 +765,8 @@ export default function App(): JSX.Element {
         "letter-spacing": "0.5px",
         "white-space": "nowrap",
         "user-select": "none",
-        color: "#04245c",
+        //color: "#04245c",
+        color: "red",
       }}>
         {props.params.title}
       </div>
@@ -763,7 +779,8 @@ export default function App(): JSX.Element {
     return (
       <div class="dockview-theme-replit" style={{ width: "100%", height: "100%" }}>
         <DockviewSolid
-          theme={themeReplit}
+          //theme={themeReplit}
+          theme={themeGusa}
           components={{ topPanel: TopPanelContent }}
           tabComponents={{ playgroundTab: PlaygroundTabHeader }}
           rightHeaderActionsComponent={(hProps: IDockviewHeaderActionsProps) => {
@@ -1282,10 +1299,11 @@ export default function App(): JSX.Element {
             top: TopWorkspace,
             bottom: BottomPanel,
           }}
+	  margin={3}
           onReady={({ api }) => {
             setMainSplitApi(api);
             api.addPanel({ id: "top", component: "top", params: {}, size: 700, minimumSize: 48, skipLayout: true });
-            api.addPanel({ id: "bottom", component: "bottom", params: {}, size: 200, minimumSize: 30, skipLayout: true });
+            api.addPanel({ id: "bottom", component: "bottom", params: {}, size: 230, minimumSize: 30, skipLayout: true });
 
             const bottom = api.getPanel("bottom");
             bottom?.api.setConstraints({

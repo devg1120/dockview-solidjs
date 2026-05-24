@@ -114,7 +114,7 @@ export function App() {
       component: "panelContent",
       params: { title: "Canvas" },
       tabComponent: "customTabHeaderCanvas",
-      initialWidth: containerWidth() * 0.9,
+      initialWidth: containerWidth() * 0.6,
       initialHeight: containerHeight() * 0.85,
     },
     componentPanel: {
@@ -122,7 +122,7 @@ export function App() {
       component: "panelContent",
       params: { title: "Components" },
       tabComponent: "customTabHeaderComponent",
-      initialWidth: containerWidth() * 0.15,
+      initialWidth: containerWidth() * 0.1,
     },
     configurationPanel: {
       id: "configurationPanel",
@@ -134,9 +134,9 @@ export function App() {
     workspacePanel: {
       id: "workspacePanel",
       component: "panelContent",
-      params: { title: "Workspace" },
+      params: { title: "WorkspaceGS" },
       tabComponent: "customTabHeaderWorkspace",
-      initialWidth: containerWidth() * 0.1,
+      initialWidth: containerWidth() * 0.3,
       initialHeight: containerHeight(),
     },
   };
@@ -189,6 +189,7 @@ export function App() {
         addedPanel.api.setSize({ height: Math.floor(containerHeight() * 0.21) });
       }
     }
+    
     return addedPanel;
   }
 
@@ -417,15 +418,15 @@ export function App() {
       );
 
       if (topGroup && bottomGroup) {
-        topGroup.api.setSize({ height: Math.floor(containerHeight() * 0.85) });
-        bottomGroup.api.setSize({ height: Math.floor(containerHeight() * 0.15) });
+        topGroup.api.setSize({ height: Math.floor(containerHeight() * 0.8) });
+        bottomGroup.api.setSize({ height: Math.floor(containerHeight() * 0.2) });
       }
 
       // Set widths (split horizontally: workspace | canvas | components)
       if (canvasPanel && componentPanel && workspacePanel) {
-        canvasPanel.group.api.setSize({ width: Math.floor(containerWidth() * 0.75) });
-        componentPanel.group.api.setSize({ width: Math.floor(containerWidth() * 0.15) });
-        workspacePanel.group.api.setSize({ width: Math.floor(containerWidth() * 0.1) });
+        canvasPanel.group.api.setSize({ width: Math.floor(containerWidth() * 0.6) });
+        componentPanel.group.api.setSize({ width: Math.floor(containerWidth() * 0.2) });
+        workspacePanel.group.api.setSize({ width: Math.floor(containerWidth() * 0.2) });
       }
     }, 1);
 
@@ -442,6 +443,12 @@ export function App() {
       setClosedPanels((prev) => prev.filter((id) => id !== panel.id));
     });
   }
+
+const themeGusa: DockviewTheme = {       
+    name: 'replit',
+    className: 'dockview-theme-replit',
+    gap: 3,
+};
 
   return (
     <div
@@ -465,7 +472,8 @@ export function App() {
         }}
       >
         <DockviewSolid
-          theme={themeReplit}
+          //theme={themeReplit}
+          theme={themeGusa}
           components={{ panelContent: (p) => <PanelContent {...p} dockViewApi={dockViewApi!} /> }}
           tabComponents={{
             customTabHeaderWorkspace: CustomTabHeaderWithCloseButton,

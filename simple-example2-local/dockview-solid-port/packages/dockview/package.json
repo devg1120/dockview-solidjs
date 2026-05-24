@@ -1,0 +1,74 @@
+{
+  "name": "@arminmajerie/dockview",
+  "version": "5.0.1",
+  "description": "Zero dependency layout manager supporting tabs, grids and splitviews (SolidJS only)",
+  "keywords": [
+    "dockview",
+    "splitview",
+    "gridview",
+    "dock",
+    "tabs",
+    "layout",
+    "solid",
+    "solidjs",
+    "docking",
+    "drag-and-drop"
+  ],
+  "homepage": "https://github.com/arminmajerie/dockview-solid-port",
+  "bugs": {
+    "url": "https://github.com/arminmajerie/dockview-solid-port/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arminmajerie/dockview-solid-port.git"
+  },
+  "license": "MIT",
+  "author": "https://github.com/arminmajerie",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./styles/dockview.css": "./dist/styles/dockview.css",
+    "./styles/*": "./dist/styles/*",
+    "./dist/style.css": "./dist/style.css",
+    "./dist/styles/dockview.css": "./dist/styles/dockview.css",
+    "./dist/styles/*": "./dist/styles/*"
+  },
+  "sideEffects": [
+    "./dist/style.css",
+    "./dist/styles/*.css"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "@arminmajerie/dockview-core": "5.0.1"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.8.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^9.39.1",
+    "solid-js": "^1.9.11",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
+    "typedoc": "^0.28",
+    "typescript": "^5.3.3"
+  },
+  "scripts": {
+    "build": "npm run clean && tsc -p tsconfig.json && node scripts/copy-css.js",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true});\"",
+    "lint": "eslint src --ext .ts,.tsx",
+    "prepublishOnly": "npm run build",
+    "rebuild": "npm run clean && npm run build"
+  }
+}
