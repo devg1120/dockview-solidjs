@@ -5,8 +5,8 @@ import {
   DockviewSolid,
   IDockviewPanelProps,
   themeReplit,
-//} from '@arminmajerie/dockview-solid';
-} from '../dockview-solid-port/packages/dockview/src';
+//} from '../dockview-solid-port/packages/dockview/src';
+} from '../dockview-solid-port/dockview/src';
 
 type LayoutState = {
   activePanel?: string;
