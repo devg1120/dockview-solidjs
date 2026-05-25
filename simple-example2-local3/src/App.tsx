@@ -1,9 +1,5 @@
-// packages/examples/simple-example/src/App.tsx
 import { onMount, onCleanup, createSignal, Show } from "solid-js";
 
-//import "../dockview-solid-port/packages/dockview-solid/styles/dockview.css";
-//import "../dockview-solid-port/dockview-solid/styles/dockview.css";
-//import "../dockview-solid-port/styles/dockview.css";
 import "../dockview-solid/styles/dockview.css";
 import {
   DockviewSolid,
@@ -15,12 +11,8 @@ import {
   IDockviewPanel,
   themeReplit,
   SplitviewSolid, // <-- use the Solid Splitview
-//} from '../dockview-solid-port/packages/dockview/src';
-//} from '../dockview-solid-port/dockview/src';
 } from '../dockview-solid/dockview/src';
 
-//import { Orientation } from '../dockview-solid-port/packages/dockview/src';
-//import { Orientation } from '../dockview-solid-port/dockview/src';
 import { Orientation } from '../dockview-solid/dockview/src';
 
 import CloseIcon from "@suid/icons-material/Close";

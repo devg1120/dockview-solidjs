@@ -5,8 +5,6 @@ import {
   DockviewSolid,
   IDockviewPanelProps,
   themeReplit,
-//} from '../dockview-solid-port/packages/dockview/src';
-//} from '../dockview-solid-port/dockview/src';
 } from '../dockview-solid/dockview/src';
 
 type LayoutState = {
