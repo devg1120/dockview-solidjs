@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "esbenp.prettier-vscode",
+        "redhat.vscode-yaml",
+        "dbaeumer.vscode-eslint",
+        "editorconfig.editorconfig"
+    ],
+    "unwantedRecommendations": []
+}
