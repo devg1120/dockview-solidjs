@@ -2,7 +2,8 @@
 import { onMount, onCleanup, createSignal, Show } from "solid-js";
 
 //import "@arminmajerie/dockview-solid/styles/dockview.css";
-//import { Orientation } from '../../dockview-solid-port/packages/dockview-solid/src/dockview.css"
+import "../dockview-solid-port/packages/dockview-solid/styles/dockview.css";
+//import { Orientation } from '../dockview-solid-port/packages/dockview-solid/styles/dockview.css"
 import {
   DockviewSolid,
   DockviewApi,

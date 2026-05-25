@@ -26,7 +26,7 @@ export * from './dockview/dockviewEnvironment';
  */
 export { Emitter as DockviewEmitter, Event as DockviewEvent } from './events';
 export {
-    IDisposable as DockviewIDisposable,
+    //IDisposable as DockviewIDisposable,
     MutableDisposable as DockviewMutableDisposable,
     CompositeDisposable as DockviewCompositeDisposable,
     Disposable as DockviewDisposable,
@@ -35,6 +35,8 @@ export {
 export * from './panel/types';
 
 export * from './splitview/splitview';
+
+/*
 export {
     SplitviewComponentOptions,
     PanelViewInitParameters,
@@ -42,32 +44,48 @@ export {
     SplitviewFrameworkOptions,
     PROPERTY_KEYS_SPLITVIEW,
 } from './splitview/options';
+*/
+export * from './splitview/options';
 
 export * from './paneview/paneview';
 export * from './gridview/gridview';
+
+/*
 export {
     GridviewComponentOptions,
     GridviewOptions,
     GridviewFrameworkOptions,
     PROPERTY_KEYS_GRIDVIEW,
 } from './gridview/options';
-export * from './gridview/baseComponentGridview';
+*/
+export * from './gridview/options';
 
+export * from './gridview/baseComponentGridview';
+/*
 export {
     DraggablePaneviewPanel,
     PaneviewDidDropEvent as PaneviewDropEvent,
 } from './paneview/draggablePaneviewPanel';
+*/
+export * from './paneview/draggablePaneviewPanel';
 
 export * from './dockview/components/panel/content';
 export * from './dockview/components/tab/tab';
 export * from './dockview/dockviewGroupPanelModel';
+/*
 export {
     TabDragEvent,
     GroupDragEvent,
 } from './dockview/components/titlebar/tabsContainer';
-export { TabContextMenuEvent } from './dockview/components/titlebar/tabs';
+*/
+export * from './dockview/components/titlebar/tabsContainer';
+
+//export { TabContextMenuEvent } from './dockview/components/titlebar/tabs';
+export * from './dockview/components/titlebar/tabs';
 export * from './dockview/types';
 export * from './dockview/dockviewGroupPanel';
+
+/*
 export {
     IGroupPanelBaseProps,
     IDockviewPanelHeaderProps,
@@ -77,36 +95,48 @@ export {
     IWatermarkPanelProps,
     DockviewReadyEvent,
 } from './dockview/framework';
+*/
+export * from './dockview/framework';
+
 
 export * from './dockview/options';
 export * from './dockview/theme';
 export * from './dockview/dockviewPanel';
 export { DefaultTab } from './dockview/components/tab/defaultTab';
+
+/*
 export {
     DefaultDockviewDeserialzier,
     IPanelDeserializer,
 } from './dockview/deserializer';
+*/
+export * from './dockview/deserializer';
+
 
 export * from './dockview/dockviewComponent';
 export * from './gridview/gridviewComponent';
 export * from './splitview/splitviewComponent';
 export * from './paneview/paneviewComponent';
+/*
 export {
-    PaneviewComponentOptions,
-    PaneviewOptions,
-    PaneviewFrameworkOptions,
-    PROPERTY_KEYS_PANEVIEW,
-    PaneviewUnhandledDragOverEvent,
-    PaneviewDndOverlayEvent,
+    //PaneviewComponentOptions,
+    //PaneviewOptions,
+    //PaneviewFrameworkOptions,
+    //PROPERTY_KEYS_PANEVIEW,
+    //PaneviewUnhandledDragOverEvent,
+    //PaneviewDndOverlayEvent,
 } from './paneview/options';
+*/
+export *  from './paneview/options';
 
 export * from './gridview/gridviewPanel';
-export { SplitviewPanel, ISplitviewPanel } from './splitview/splitviewPanel';
+//export { SplitviewPanel, ISplitviewPanel } from './splitview/splitviewPanel';
+export * from './splitview/splitviewPanel';
 export * from './paneview/paneviewPanel';
 export * from './dockview/types';
 
-export { DockviewPanelRenderer } from './overlay/overlayRenderContainer';
-
+//export { DockviewPanelRenderer } from './overlay/overlayRenderContainer';
+/*
 export {
     Position,
     positionToDirection,
@@ -114,7 +144,10 @@ export {
     MeasuredValue,
     DroptargetOverlayModel,
 } from './dnd/droptarget';
+*/
 
+export *  from './dnd/droptarget';
+/*
 export {
     FocusEvent,
     PanelDimensionChangeEvent,
@@ -122,28 +155,46 @@ export {
     ActiveEvent,
     PanelApi,
 } from './api/panelApi';
+*/
+
+export *  from './api/panelApi';
+/*
 export {
     SizeEvent,
     GridviewPanelApi,
     GridConstraintChangeEvent,
 } from './api/gridviewPanelApi';
+*/
+export * from './api/gridviewPanelApi';
+/*
 export {
     TitleEvent,
     RendererChangedEvent,
     DockviewPanelApi,
     DockviewPanelMoveParams,
 } from './api/dockviewPanelApi';
+*/
+export * from './api/dockviewPanelApi';
+/*
 export {
     PanelSizeEvent,
     PanelConstraintChangeEvent,
     SplitviewPanelApi,
 } from './api/splitviewPanelApi';
-export { ExpansionEvent, PaneviewPanelApi } from './api/paneviewPanelApi';
+*/
+export *  from './api/splitviewPanelApi';
+
+//export { ExpansionEvent, PaneviewPanelApi } from './api/paneviewPanelApi';
+export * from './api/paneviewPanelApi';
+/*
 export {
     DockviewGroupPanelApi,
     DockviewGroupPanelFloatingChangeEvent,
     DockviewGroupMoveParams,
 } from './api/dockviewGroupPanelApi';
+*/
+export * from './api/dockviewGroupPanelApi';
+/*
 export {
     CommonApi,
     SplitviewApi,
@@ -151,12 +202,17 @@ export {
     GridviewApi,
     DockviewApi,
 } from './api/component.api';
+*/
+export *  from './api/component.api';
+/*
 export {
     createDockview,
     createGridview,
     createPaneview,
     createSplitview,
 } from './api/entryPoints';
+*/
+export * from './api/entryPoints';
 
 // External detach support
 export * from './dockview/externalDetach';
