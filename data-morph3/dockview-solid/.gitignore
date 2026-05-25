@@ -1,0 +1,35 @@
+node_modules/
+coverage/
+.idea/
+typedocs/
+.DS_Store
+*-debug.log
+.build
+storybook-static/
+.rollup.cache/
+test-report.xml
+*.code-workspace
+yarn-error.log
+/build
+/docs/
+/generated/
+/package-lock.json
+/packages/examples/simple-example/package-lock.json
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+.npmrc
+!.npmrc.example
+
+# Extra package-manager / tool output
+*.tsbuildinfo
+*.tgz
+.cache/
+.vite/
+.turbo/
+.nyc_output/
+pnpm-debug.log*
+npm-debug.log*

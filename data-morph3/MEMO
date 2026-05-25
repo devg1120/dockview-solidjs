@@ -1,0 +1,13 @@
+import "@arminmajerie/dockview-solid/styles/dockview.css";
+import {
+  DockviewSolid,
+  DockviewApi,
+  IDockviewPanelProps,
+  IDockviewPanelHeaderProps,
+  IWatermarkPanelProps,
+  DockviewReadyEvent,
+  IDockviewPanel,
+  themeReplit,
+  SplitviewSolid, // <-- use the Solid Splitview
+} from "@arminmajerie/dockview-solid";
+
